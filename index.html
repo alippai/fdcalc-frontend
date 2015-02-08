@@ -57,7 +57,7 @@
 
         var rString = 'r=' + $('#r').val();
         var fString = 'f=' + $('#f').val();
-        $.get(base + '/nf?' + rString + '&' + fString, function(text) { $('#nf').text(text).parent().removeClass('warning'); });
+        $.get(base + '/nf?' + rString + '&' + fString, function(text) { $('#nf').text(text.substring(2)).parent().removeClass('warning'); });
         $.get(base + '/fmin?' + fString, function(text) { $('#fmin').text(text).parent().removeClass('warning'); });
         $.get(base + '/keys?' + rString + '&' + fString, function(text) { $('#keys').text(text).parent().removeClass('warning'); });
         $.get(base + '/primaryattributes?' + rString + '&' + fString, function(text) { $('#primaryattributes').text(text).parent().removeClass('warning'); });
