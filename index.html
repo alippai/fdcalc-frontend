@@ -27,6 +27,9 @@
     .results {
       display: none;
     }
+    .results td {
+      white-space: pre;
+    }
     .form-horizontal .form-group {
       margin: 0 0 15px 0;
     }
@@ -48,10 +51,6 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript">
-    function nl2br(input_string) {
-      return input_string.replace(/(\r\n|\r|\n)/g, '<br>');
-    }
-
     $(document).ready(function(){
       $('#demoForm').submit(function() {
         var base = 'http://104.131.105.54:5000';
@@ -59,12 +58,12 @@
         var rString = 'r=' + $('#r').val();
         var fString = 'f=' + $('#f').val();
         $.get(base + '/nf?' + rString + '&' + fString, function(text) { $('#nf').text(text).parent().removeClass('warning'); });
-        $.get(base + '/fmin?' + fString, function(text) { $('#fmin').text(nl2br(text)).parent().removeClass('warning'); });
+        $.get(base + '/fmin?' + fString, function(text) { $('#fmin').text(text).parent().removeClass('warning'); });
         $.get(base + '/keys?' + rString + '&' + fString, function(text) { $('#keys').text(text).parent().removeClass('warning'); });
         $.get(base + '/primaryattributes?' + rString + '&' + fString, function(text) { $('#primaryattributes').text(text).parent().removeClass('warning'); });
         $.get(base + '/secondaryattributes?' + rString + '&' + fString, function(text) { $('#secondaryattributes').text(text).parent().removeClass('warning'); });
-        $.get(base + '/bcnfs?' + rString + '&' + fString, function(text) { $('#bcnfs').text(nl2br(text)).parent().removeClass('warning'); });
-        $.get(base + '/d3nfs?' + rString + '&' + fString, function(text) { $('#d3nfs').text(nl2br(text)).parent().removeClass('warning'); });
+        $.get(base + '/bcnfs?' + rString + '&' + fString, function(text) { $('#bcnfs').text(text).parent().removeClass('warning'); });
+        $.get(base + '/d3nfs?' + rString + '&' + fString, function(text) { $('#d3nfs').text(text).parent().removeClass('warning'); });
         $('.results').show();
         $('.results tr').addClass('warning');
 
